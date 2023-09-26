@@ -2,12 +2,13 @@
 
 import { useRef } from "react";
 import { postData } from "../action";
+import { Input } from "postcss";
 
 export default function Form() {
   const formRef = useRef<HTMLFormElement>(null);
   return (
     <form
-      action={async (formData) => {
+      action={async (formData: FormData) => {
         await postData(formData);
         formRef.current?.reset();
       }}
